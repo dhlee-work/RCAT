@@ -7,13 +7,13 @@ Content-based medical image retrieval (CBMIR) commonly represents each image usi
 
 This package contains the cleaned RCAT pipeline aligned with the final paper terminology:
 
-## Results
-![Figure 3](./figs/Figure3.png)
-
 - **RCAI**: Region-Conditioned Anatomical Interaction
 - **RTCA**: Region-Token Contrastive Alignment
 - **ASR**: Anatomical Selectivity Recognition
 - **ASR-CF**: optional ASR-based candidate filtering
+
+## Results
+![Figure 3](./figs/Figure3.png)
 
 ## 1. Train RCAT
 
