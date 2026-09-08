@@ -18,14 +18,14 @@ This package contains the cleaned RCAT pipeline aligned with the final paper ter
 ## 1. Train RCAT
 
 ```bash
-python scripts/B1.BuildModel.py \
+python B1.BuildModel.py \
   --config config/Model-Totalseg-RCAT.yaml
 ```
 
 Resume a refactored RCAT training checkpoint:
 
 ```bash
-python scripts/B1.BuildModel.py \
+python B1.BuildModel.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --resume_checkpoint logs/<project>/<run>/last.ckpt
 ```
@@ -35,7 +35,7 @@ The debug-only 200-slice validation subsampling has been removed.
 ## 2. Build the database
 
 ```bash
-python scripts/C1.BuildModelDatabase.py \
+python C1.BuildModelDatabase.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --checkpoint logs/<project>/<run>/last.ckpt
 ```
@@ -56,7 +56,7 @@ The inference loader can also read the final legacy checkpoint and map the old m
 Single-region queries, 50 per anatomical region:
 
 ```bash
-python scripts/C2.ExtractQueryEmbeddings.py \
+python C2.ExtractQueryEmbeddings.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --checkpoint logs/<project>/<run>/last.ckpt \
   --mode one \
@@ -68,7 +68,7 @@ python scripts/C2.ExtractQueryEmbeddings.py \
 Multi-region queries:
 
 ```bash
-python scripts/C2.ExtractQueryEmbeddings.py \
+python C2.ExtractQueryEmbeddings.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --checkpoint logs/<project>/<run>/last.ckpt \
   --mode multi \
@@ -91,7 +91,7 @@ Repeated multi-region draws no longer overwrite one another; every sampled query
 Base RCAT:
 
 ```bash
-python scripts/C3.Retrieval.py \
+python C3.Retrieval.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --mode one \
   --n_regions 1 \
@@ -101,7 +101,7 @@ python scripts/C3.Retrieval.py \
 RCAT + ASR-CF with the paper thresholds:
 
 ```bash
-python scripts/C3.Retrieval.py \
+python C3.Retrieval.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --mode one \
   --n_regions 1 \
@@ -114,7 +114,7 @@ python scripts/C3.Retrieval.py \
 All available quality metrics:
 
 ```bash
-python scripts/C3.Retrieval.py \
+python C3.Retrieval.py \
   --config config/Model-Totalseg-RCAT.yaml \
   --mode one \
   --n_regions 1 \
