@@ -1,0 +1,51 @@
+project_name: 'Model-Totalseg-RCAT'
+project_desc: 'RCAT: RCAI + RTCA + ASR'
+device: [0]
+disable_logger: false
+logger_id: null
+seed_number: 1234
+num_workers: 16
+
+# training
+root_dir: './datasets/totalsegmentator_retrieval/'
+vista3d: false
+batch_size: 32
+accumulate_grad_batches: 1
+ckpt_every_n_steps: 5000
+val_check_interval: 1.0
+max_steps: 30000
+
+lr_vit: 1e-6
+lr_proj: 1e-6
+lr: 1e-4
+scheduler_t_up: 1000
+scheduler_step_size: 15000
+scheduler_gamma: 0.5
+weight_decay: 0.001
+
+# data
+patch_encoder_size: [518, 518]
+patch_grid_size: [37, 37]
+gt_seg_size: [518, 518]
+region_sampling_rate: 0.95
+
+# RCAT architecture
+num_labels: 117
+patch_encoder_path: 'facebook/dinov2-base'
+img_encoder_freeze: false
+encoder_dim: 768
+feature_dim: 512
+
+rcai_depth: 4
+rcai_num_heads: 8
+rcai_dropout: 0.1
+region_adapter_ratio: 0.25
+
+# training objectives
+asr_lambda: 1.0
+rtca_lambda: 0.1
+rtca_temperature: 0.07
+max_rtca_regions_per_image: 10
+
+# visualization
+out_attn: false
