@@ -1,12 +1,14 @@
 # RCAT:Region-Conditioned Anatomical Tokens for CT Image Retrieval
 
 ![Figure 2](./figs/Figure2.png)
-![Figure 3](./figs/Figure3.png)
 ## Abstract
 Content-based medical image retrieval (CBMIR) commonly represents each image using a fixed global embedding, limiting its ability to reflect visual similarity within a user-specified region. Existing region-based medical image retrieval (RBMIR) approaches construct region-specific representations but generally require predefined region extraction from database images, resulting in dependence on region annotations or external segmentation models. We propose the Region-Conditioned Anatomical Token Representation Framework (RCAT) for flexible region-based retrieval of computed tomography (CT) slices. RCAT represents each slice using anatomically structured tokens and learns region-conditioned representations through Region-Conditioned Anatomical Interaction, Region--Token Contrastive Alignment, and Anatomical Selectivity Recognition, which respectively incorporate region information, preserve anatomical visual characteristics, and identify query-relevant tokens. Database tokens are precomputed once using the full image as the region condition, while query-derived selectivity weights determine their contribution during retrieval. This enables region-conditioned retrieval without region annotations or external segmentation during database construction. On TotalSegmentator, RCAT achieved a P@1 of 0.9366 and an mAP@10 of 0.9045, together with the best regional structural and perceptual similarity among the evaluated methods. On the unseen CT-ORG dataset, RCAT achieved a P@1 of 0.9406 and an mAP@10 of 0.9186 despite differences in anatomical region definitions. On the Medical Segmentation Decathlon, directly selecting tumor regions not predefined during training increased mAP@10 by 0.0460, whereas the evaluated region-level baselines showed decreased performance. RCAT further supports multi-region and user-specified spatial queries while retaining fixed database representations.
 
 
 This package contains the cleaned RCAT pipeline aligned with the final paper terminology:
+
+## Results
+![Figure 3](./figs/Figure3.png)
 
 - **RCAI**: Region-Conditioned Anatomical Interaction
 - **RTCA**: Region-Token Contrastive Alignment
